@@ -18,7 +18,7 @@ public class HealthBar : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.position = Target.position + Vector3.up * 4f;
+        transform.position = Target.position + Vector3.up * 1f;
         transform.rotation = _cameraTransform.rotation;
     }
 

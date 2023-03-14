@@ -5,5 +5,5 @@ using UnityEngine;
 public class TreeCollider : MonoBehaviour
 {
 
-    public Tree Tree;
+    public LootFarm Resources;
 }
