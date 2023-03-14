@@ -11,6 +11,8 @@ public class LootFarm : MonoBehaviour
     public GameObject HealthbarPrefab;
     private HealthBar _healthBar;
 
+    public GameObject[] ItemDrops;
+
     private void Start() {
         _maxHealth = _health;
         GameObject healthBar = Instantiate(HealthbarPrefab);
@@ -23,13 +25,19 @@ public class LootFarm : MonoBehaviour
         //transform.localScale *= 0.9f;
         _healthBar.SetHealth(_health, _maxHealth);
         if (_health <= 0) {
-            //Destroy(gameObject);
+            ItemDrop();
         }
     }
 
     private void OnDestroy() {
         if (_healthBar) {
             Destroy(_healthBar.gameObject);
+        }
+    }
+
+    private void ItemDrop() {
+        for (int i = 0; i < ItemDrops.Length; i++) {
+            Instantiate(ItemDrops[i], transform.position + new Vector3(0, 1, 0), Quaternion.identity);
         }
     }
 }
