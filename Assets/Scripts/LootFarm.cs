@@ -10,7 +10,6 @@ public class LootFarm : MonoBehaviour
 
     public GameObject HealthbarPrefab;
     private HealthBar _healthBar;
-
     public GameObject[] ItemDrops;
 
     private void Start() {

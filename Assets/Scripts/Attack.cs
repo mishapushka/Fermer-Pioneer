@@ -9,11 +9,18 @@ public class Attack : MonoBehaviour
     public NavMeshAgent NavMeshAgent;
     public float DistanceToAttack = 0.5f;
     [SerializeField] Animator _animator;
+    [SerializeField] TrailRenderer _trailRenderer;
+    [SerializeField] ParticleSystem _clawAttackEffect;
+    public float _speedEffect = 0.5f;
 
     bool _attack;
 
-    private void Update() {
+    private void Start() {
+        DisableTrail();
+    }
 
+    private void Update() {
+ 
         if (_attack == false) {
             Collider[] allColliders = Physics.OverlapSphere(transform.position, DistanceToAttack);
             for (int i = 0; i < allColliders.Length; i++) {
@@ -29,6 +36,24 @@ public class Attack : MonoBehaviour
         _attack = false;
     }
 
+    public void EnableTrail() {
+       _trailRenderer.enabled = true;
+    }
+
+    public void DisableTrail() {
+        _trailRenderer.enabled = false;
+    }
+
+    //[System.Obsolete]
+    //public void AttackEffectOn() {
+    //    _clawAttackEffect.Play();
+    //    _clawAttackEffect.startSpeed = 5f;
+    //}
+
+    //public void AttackEffectOff() {
+    //    _clawAttackEffect.Stop();
+    //}
+
     public void DoAttack() {
         Collider[] allColliders = Physics.OverlapSphere(transform.position, DistanceToAttack);
         for (int i = 0; i < allColliders.Length; i++) {
@@ -42,6 +67,10 @@ public class Attack : MonoBehaviour
         _animator.SetTrigger("Attack");
         _attack = true;
     }
+
+    //private void ClawAttack() {
+    //    Instantiate(_clawAttackEffect, transform.position, Quaternion.identity);
+    //}
 
     private void OnDrawGizmos() {
         Gizmos.color = Color.green * 0.8f;
