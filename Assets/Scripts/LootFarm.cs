@@ -24,8 +24,10 @@ public class LootFarm : MonoBehaviour
         _health -= damageValue;
         //transform.localScale *= 0.9f;
         _healthBar.SetHealth(_health, _maxHealth);
-        if (_health <= 0) {
+        if (_health <= 5) {
             ItemDrop();
+        } if (_health == 0) {
+            OnDestroy();
         }
     }
 
