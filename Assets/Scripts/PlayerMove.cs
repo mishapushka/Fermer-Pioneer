@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] Rigidbody _rigidbody;
+
+    [SerializeField] private FixedJoystick _joystick;
+    [SerializeField] private NavMeshAgent NavMeshAgent;
     [SerializeField] float _speed;
-    [SerializeField] PlayerControllerCustomPerson _playerControll;
 
     private void FixedUpdate() {
-        _rigidbody.velocity = new Vector3(_playerControll.InputValue.x, 0f, _playerControll.InputValue.y) * _speed;
+        NavMeshAgent.velocity = new Vector3(-_joystick.Horizontal * _speed, -NavMeshAgent.velocity.y, -_joystick.Vertical * _speed);
     }
 }
