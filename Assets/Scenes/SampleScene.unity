@@ -1766,6 +1766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 1817948805}
+  _joystick: {fileID: 0}
 --- !u!95 &1817948805 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8592876449711865404, guid: 6b5d591dbb72ac04a80d42bbb710cb7a, type: 3}
@@ -1786,7 +1787,7 @@ MonoBehaviour:
   DistanceToAttack: 1
   _animator: {fileID: 1817948805}
   _trailRenderer: {fileID: 1775242199}
-  _clawAttackEffect: {fileID: 1128851966024826, guid: b2b49b9af2875404194fd6311b62badd, type: 3}
+  _clawAttackEffect: {fileID: 1894473026207976, guid: 2d927b04de42f634fb5aa5ecbcfbf5d9, type: 3}
 --- !u!1 &1839006087
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class PlayerMove : MonoBehaviour
 {
 
-    [SerializeField] private FixedJoystick _joystick;
-    [SerializeField] private NavMeshAgent NavMeshAgent;
+    [SerializeField] FixedJoystick _joystick;
+    [SerializeField] NavMeshAgent NavMeshAgent;
     [SerializeField] float _speed;
 
     private void FixedUpdate() {

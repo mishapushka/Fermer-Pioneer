@@ -9,10 +9,8 @@ public class Attack : MonoBehaviour
     public float DistanceToAttack = 0.5f;
     [SerializeField] Animator _animator;
     [SerializeField] TrailRenderer _trailRenderer;
-   // [SerializeField] ParticleSystem _clawAttackEffect;
+
     public GameObject _clawAttackEffect;
-    //bool _effect;
-    //public float _speedEffect = 0.5f;
 
     bool _attack;
 
@@ -27,7 +25,7 @@ public class Attack : MonoBehaviour
             for (int i = 0; i < allColliders.Length; i++) {
                 if (allColliders[i].TryGetComponent(out TreeCollider treeCollider)) {
                     StartAttack();
-                    Invoke("AttackEffectOn", 0.6f);
+                    Invoke("AttackEffectOn", 0.9f);
                     break;
                 }
             }
@@ -47,14 +45,9 @@ public class Attack : MonoBehaviour
     }
 
     public void AttackEffectOn() {
-        GameObject clone = Instantiate(_clawAttackEffect, transform.position, Quaternion.Euler(-90f, 0f, 0f));
+        GameObject clone = Instantiate(_clawAttackEffect, transform.position, Quaternion.Euler(0f, 90f, 20f));
         Destroy(clone, 3);
     }
-
-    //public void AttackEffectOff() {
-    //    //_clawAttackEffect.Stop();
-    //    Destroy(_clawAttackEffect);
-    //}
 
     public void DoAttack() {
         Collider[] allColliders = Physics.OverlapSphere(transform.position, DistanceToAttack);
@@ -70,10 +63,6 @@ public class Attack : MonoBehaviour
         _attack = true;
   
     }
-
-    //private void ClawAttack() {
-    //    Instantiate(_clawAttackEffect, transform.position, Quaternion.identity);
-    //}
 
     private void OnDrawGizmos() {
         Gizmos.color = Color.green * 0.8f;

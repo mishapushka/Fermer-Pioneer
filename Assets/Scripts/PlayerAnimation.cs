@@ -6,10 +6,11 @@ public class PlayerAnimation : MonoBehaviour
 {
 
     [SerializeField] Animator _animator;
+    public PlayerMove _joystick;
 
     void Update()
     {
-        _animator.SetBool("Idle", true);
+        _animator.SetBool("Run", true);
         if(Input.GetKeyDown(KeyCode.Space)) {
             _animator.SetTrigger("Attack");
         }
