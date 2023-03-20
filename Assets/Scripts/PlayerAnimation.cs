@@ -9,7 +9,7 @@ public class PlayerAnimation : MonoBehaviour
 
     void Update()
     {
-        _animator.SetBool("Run",true);
+        _animator.SetBool("Idle", true);
         if(Input.GetKeyDown(KeyCode.Space)) {
             _animator.SetTrigger("Attack");
         }

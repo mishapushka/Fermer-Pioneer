@@ -422,7 +422,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Small_Axe_02
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3004794520467240604, guid: 681c532f68b4f7648ad2632094071949, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 681c532f68b4f7648ad2632094071949, type: 3}
 --- !u!1 &219418507
 GameObject:
@@ -1420,12 +1421,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6552bc572c6f35648a4642f8725c8898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NavMeshAgent: {fileID: 0}
   DistanceToAttack: 1
   _animator: {fileID: 0}
   _trailRenderer: {fileID: 0}
   _clawAttackEffect: {fileID: 0}
-  _speedEffect: 0.5
 --- !u!1001 &1391670319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1634,7 +1633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1775242198
 Transform:
   m_ObjectHideFlags: 0
@@ -1784,12 +1783,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6552bc572c6f35648a4642f8725c8898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NavMeshAgent: {fileID: 1142486042}
   DistanceToAttack: 1
   _animator: {fileID: 1817948805}
   _trailRenderer: {fileID: 1775242199}
-  _clawAttackEffect: {fileID: 198738407137091258, guid: 2d927b04de42f634fb5aa5ecbcfbf5d9, type: 3}
-  _speedEffect: 0.5
+  _clawAttackEffect: {fileID: 1128851966024826, guid: b2b49b9af2875404194fd6311b62badd, type: 3}
 --- !u!1 &1839006087
 GameObject:
   m_ObjectHideFlags: 0

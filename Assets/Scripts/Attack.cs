@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Attack : MonoBehaviour
 {
-    public NavMeshAgent NavMeshAgent;
+    
     public float DistanceToAttack = 0.5f;
     [SerializeField] Animator _animator;
     [SerializeField] TrailRenderer _trailRenderer;
-    [SerializeField] ParticleSystem _clawAttackEffect;
-    public float _speedEffect = 0.5f;
+   // [SerializeField] ParticleSystem _clawAttackEffect;
+    public GameObject _clawAttackEffect;
+    //bool _effect;
+    //public float _speedEffect = 0.5f;
 
     bool _attack;
 
@@ -26,6 +27,7 @@ public class Attack : MonoBehaviour
             for (int i = 0; i < allColliders.Length; i++) {
                 if (allColliders[i].TryGetComponent(out TreeCollider treeCollider)) {
                     StartAttack();
+                    Invoke("AttackEffectOn", 0.6f);
                     break;
                 }
             }
@@ -44,14 +46,14 @@ public class Attack : MonoBehaviour
         _trailRenderer.enabled = false;
     }
 
-    //[System.Obsolete]
-    //public void AttackEffectOn() {
-    //    _clawAttackEffect.Play();
-    //    _clawAttackEffect.startSpeed = 5f;
-    //}
+    public void AttackEffectOn() {
+        GameObject clone = Instantiate(_clawAttackEffect, transform.position, Quaternion.Euler(-90f, 0f, 0f));
+        Destroy(clone, 3);
+    }
 
     //public void AttackEffectOff() {
-    //    _clawAttackEffect.Stop();
+    //    //_clawAttackEffect.Stop();
+    //    Destroy(_clawAttackEffect);
     //}
 
     public void DoAttack() {
@@ -66,6 +68,7 @@ public class Attack : MonoBehaviour
     void StartAttack() {
         _animator.SetTrigger("Attack");
         _attack = true;
+  
     }
 
     //private void ClawAttack() {
