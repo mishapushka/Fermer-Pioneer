@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 120131863}
   - component: {fileID: 120131862}
   - component: {fileID: 120131861}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,7 +570,8 @@ MonoBehaviour:
   _health: 5
   HealthbarPrefab: {fileID: 8944061166810009552, guid: 97a1ce5b6bfc3a84fb826fb174751592, type: 3}
   ItemDrops:
-  - {fileID: 1250014753164058728, guid: dd5bce45bdaeacf4aaf46b940e46158b, type: 3}
+  - {fileID: 0}
+  _woodDieEffect: {fileID: 8242962105002519934, guid: bd07cfb51b8c9404197e42419d18f474, type: 3}
 --- !u!1 &267318864
 GameObject:
   m_ObjectHideFlags: 0

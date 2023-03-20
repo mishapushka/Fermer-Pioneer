@@ -11,6 +11,7 @@ public class LootFarm : MonoBehaviour
     public GameObject HealthbarPrefab;
     private HealthBar _healthBar;
     public GameObject[] ItemDrops;
+    [SerializeField] WoodDieEffect _woodDieEffect;
 
     private void Start() {
         _maxHealth = _health;
@@ -24,7 +25,7 @@ public class LootFarm : MonoBehaviour
         //transform.localScale *= 0.9f;
         _healthBar.SetHealth(_health, _maxHealth);
         if (_health <= 5) {
-            ItemDrop();
+            DropWood();
         } if (_health == 0) {
             OnDestroy();
         }
@@ -34,6 +35,10 @@ public class LootFarm : MonoBehaviour
         if (_healthBar) {
             Destroy(_healthBar.gameObject);
         }
+    }
+
+    private void DropWood() {
+        Instantiate(_woodDieEffect, transform.position, Quaternion.identity);
     }
 
     private void ItemDrop() {
