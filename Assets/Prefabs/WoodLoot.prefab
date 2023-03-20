@@ -161,6 +161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 8168451576733943387}
+  _timeSelectionResources: 0.8
+  _collider: {fileID: 1640394032670728285}
 --- !u!54 &8168451576733943387
 Rigidbody:
   m_ObjectHideFlags: 0

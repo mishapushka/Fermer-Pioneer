@@ -9,7 +9,17 @@ public class Goods : MonoBehaviour
     [SerializeField] List<Wood> _goodsLootList = new List<Wood>();
     [SerializeField] Wood _goodsLootPrefab;
     [SerializeField] float _offset;
+    [Min(1)]
+    [SerializeField] int _numberOfRows = 3;
 
+    public static Goods Instance;
+    private void Awake() {
+        if (Instance == null) {
+            Instance = this;
+        } else {
+            Destroy(gameObject);
+        }
+    }
     public void AddOne() {
         
        Wood newWood = Instantiate(_goodsLootPrefab, _goodsParent);
@@ -19,13 +29,19 @@ public class Goods : MonoBehaviour
 
     public void RemoveOne() {
         int lastIndex = _goodsLootList.Count - 1;
-        Destroy(_goodsLootList[lastIndex].gameObject);
-        _goodsLootList.RemoveAt(lastIndex);
+        if (lastIndex >= 0) {
+            Destroy(_goodsLootList[lastIndex].gameObject);
+            _goodsLootList.RemoveAt(lastIndex);
+        }
     }
 
     void SetPositions() {
         for (int i = 0; i < _goodsLootList.Count; i++) {
-            _goodsLootList[i].transform.localPosition = new Vector3(0f, i, 0f) * _offset;
+            
+            int x = i % _numberOfRows;
+            int y = i / _numberOfRows;
+
+            _goodsLootList[i].transform.localPosition = new Vector3(x, y, 0) * _offset;
         }
     }
 }

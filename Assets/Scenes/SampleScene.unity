@@ -1253,6 +1253,7 @@ MonoBehaviour:
   _goodsLootList: []
   _goodsLootPrefab: {fileID: 247074904667589612, guid: 62c77cd9fb698044eab4c8e00dcd02bd, type: 3}
   _offset: 0.2
+  _numberOfRows: 3
 --- !u!1 &1188315356
 GameObject:
   m_ObjectHideFlags: 0
